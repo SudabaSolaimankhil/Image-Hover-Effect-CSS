@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+@import url('https://fonts.googleapis.com/css?family=Boogaloo');
+*, *::after, *::before{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Boogaloo', cursive;
+}
+
+.container{
+	width: 100%;
+	height: auto;
+	padding: 20px;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+.box{
+	width: 400px;
+	height: 380px;
+	position: relative;
+	background-color: rgba(255,102,104,1.00);
+	margin: 100px auto;
+	cursor: pointer;
+}
+.box img{
+	max-width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.box::before, .box::after{
+	content: "";
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
+	transition: all 0.5s ease-out;
+}
+.box::before{
+	border-top: 2px dashed white;
+	border-bottom: 2px dashed white;
+	transform: scale(0, 1);
+}
+.box::after{
+	border-left: 2px dashed white;
+	border-right: 2px dashed white;
+	transform: scale(1, 0);
+}
+.box:hover::before{
+	background-color: rgba(0,0,0,0.4);
+	transform: scale(1.05, 1);
+}
+.box:hover::after{
+	transform: scale(1, 1.05);
+}
+.con-text{
+	position: absolute;
+	color: white;
+	bottom: 0;
+	width: 400px;
+	height: 350px;
+	padding: 150px 0px;
+	display: none;
+	text-align: center;
+}
+.box:hover .con-text{
+	display: block;
+}
